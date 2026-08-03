@@ -1,4 +1,4 @@
-# file-analyzer
+# http-response-analyzer
 
 A simple Python utility written for analyzing HTTP Responses.
 
