@@ -22,11 +22,11 @@ cd http-response-analyzer
 
 ## Usage
 
-Run: python main.py
+Run: '''python main.py'''
 
 Example:
 
-python3 .\main.py github.com
+'''python3 .\main.py github.com
 Return all info?(flags, headers, cookies etc.) (1 or 0, default=0)
 0
 Save all output to file? (1 or 0, default=0)
@@ -56,7 +56,7 @@ Redirects
 Redirect detected
 Final URL: https://github.com/
 
-Cookies: 3
+Cookies: 3'''
 
 ## Author
 
