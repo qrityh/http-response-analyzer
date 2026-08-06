@@ -22,6 +22,22 @@ cd http-response-analyzer
 ```
 ## Usage
 
+```bash
+python main.py github.com
+```
+
+Full information:
+
+```bash
+python main.py github.com --fullinfo
+```
+
+Save report:
+
+```bash
+python main.py github.com --savefile
+```
+
 Example:
 ```
 python3 .\main.py github.com
