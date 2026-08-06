@@ -1,6 +1,5 @@
 import argparse
 from analyzer import analyze
-from sys import argv
 
 parser=argparse.ArgumentParser(
     prog='HTTP-r Analyzer',
