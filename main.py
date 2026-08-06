@@ -1,17 +1,24 @@
+import argparse
 from analyzer import analyze
 from sys import argv
 
-url=argv[1]
+parser=argparse.ArgumentParser(
+    prog='HTTP-r Analyzer',
+    description='HTTP Response analyzer (also analyzes cookies)',
+    epilog='Thanks for using %(prog)s!'
+)
+parser.add_argument('url')
+parser.add_argument('-fi', '--fullinfo', 
+                    action='store_true',
+                    help="Show full information about HTTP response")
+parser.add_argument('-sf', '--savefile', 
+                    action='store_true',
+                    help='Save analysis results to a file')
+
+args=parser.parse_args()
+
+url=args.url
 if not (url.startswith('http://') or url.startswith('https://')):
     url='http://'+url
 
-try:
-    full_info=int(input('Return all info?(flags, headers, cookies etc.) (1 or 0, default=0)\n'))
-except:
-    full_info=0
-try:
-    save_to_file=int(input('Save all output to file? (1 or 0, default=0)\n'))
-except:
-    save_to_file=0
-
-analyze(url, full_info, save_to_file)
+analyze(url, args.fullinfo, args.savefile)

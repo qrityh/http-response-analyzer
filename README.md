@@ -16,16 +16,13 @@ Python
 ## Installation
 
 Clone the repository:
-
 ```
 git clone https://github.com/your-username/http-response-analyzer.git
 cd http-response-analyzer
 ```
-
 ## Usage
 
 Example:
-
 ```
 python3 .\main.py github.com
 Return all info?(flags, headers, cookies etc.) (1 or 0, default=0)
@@ -59,10 +56,9 @@ Final URL: https://github.com/
 
 Cookies: 3
 ```
-
 ## Author
 
-Daniil - martiniden1707@gmail.com
+Daniil - qrityh
 
 https://github.com/qrityh/http-response-analyzer
 
