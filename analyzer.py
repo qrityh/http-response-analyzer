@@ -11,7 +11,7 @@ def analyze(url, full_info, save_to_file):
     )
     report=make_report(data, full_info)
     if save_to_file:
-        save_report(report,data)
+        save_report(data, (request_dictionary['Response'].getheader('Content-Type').split('; ')[1].split('=')[1] or 'utf-8'))
     print(report)
 
 def collect_data(url, request_dictionary):
@@ -21,6 +21,7 @@ def collect_data(url, request_dictionary):
             'Cookies':[],
             'Redirects':{
                 'Detected':False,
+                'Start-URL':'',
                 'Final-URL':''
             },
             'Status':0,
@@ -29,6 +30,7 @@ def collect_data(url, request_dictionary):
             'Content-Length':0,
             'Body':""
         }
+    encoding=request_dictionary['Response'].getheader('Content-Type').split('charset=')[1] or 'utf-8'
     resp=request_dictionary['Response']
     parsed_resp=request_dictionary['Parsed-Response']
     cookies=request_dictionary['Cookies']
@@ -50,6 +52,7 @@ def collect_data(url, request_dictionary):
     response_data['Content-Length']=resp.getheader('Content-Length')
     response_data['Redirects']['Detected']=(url!=resp.geturl())
     response_data['Redirects']['Final-URL']=resp.geturl()
-    response_data['Body']=resp.read()
+    response_data['Redirects']['Start-URL']=url
+    response_data['Body']=resp.read().decode(encoding)
     resp.close()
     return response_data
