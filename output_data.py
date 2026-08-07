@@ -1,3 +1,5 @@
+import json
+
 def make_report(response_data, full_info):
     data = []
 
@@ -54,8 +56,10 @@ def make_report(response_data, full_info):
 
     return '\n'.join(data)
 
-def save_report(report, response_data):
-    with open('report.txt', 'w') as f:
-        f.write(report)
+def save_report(response_data, encoding):
+    json_data=response_data.copy()
+    json_data.pop('Body')
+    with open('report.json', 'w') as f:
+        json.dump(json_data, f, indent=4)
     with open('page.html', 'wb') as f:
-        f.write(response_data['Body'])
+        f.write(response_data['Body'].encode(encoding))
