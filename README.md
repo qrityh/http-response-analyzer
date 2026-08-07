@@ -40,11 +40,7 @@ python main.py github.com --savefile
 
 Example:
 ```
-python3 .\main.py github.com
-Return all info?(flags, headers, cookies etc.) (1 or 0, default=0)
-0
-Save all output to file? (1 or 0, default=0)
-1
+python3 main.py -sf t.me
 ########################################
 HTTP Response Analyzer
 ########################################
@@ -52,25 +48,23 @@ HTTP Response Analyzer
 URL
 ----------------------------------------
 scheme: http
-netloc: github.com
+netloc: t.me
 path: 
 params: 
 query: 
 fragment: 
 
-Response
 ----------------------------------------
 Status: 200
-Server: github.com
+Server: nginx/1.30.1
 Content-Type: text/html; charset=utf-8
-Content-Length: None
+Content-Length: 19990
 
 Redirects
 ----------------------------------------
-Redirect detected
-Final URL: https://github.com/
+Final URL: https://telegram.org/
 
-Cookies: 3
+Cookies: 2
 ```
 ## Author
 
